@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="17939272-eccb-47d6-960e-4c9b1a00e40c" activeEnvironment="Default" name="ScanLocal" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="f3611282-f3d8-4175-a188-077be3c7446f" wsaVersion="NONE" name="ScanLocalBinding" type="wsdl" bindingName="{http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull}ScanLocalBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:5888/ScanLocal?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:5888/ScanLocal</con:endpoint></con:endpoints><con:operation id="ead2fc52-5d46-4f22-a10c-40894e715e5b" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#GetAllScanner" name="GetAllScanner" bindingOperationName="GetAllScanner" type="Request-Response" outputName="GetAllScannerResponse" inputName="GetAllScannerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5763437a-b165-414f-bd73-ae1c48f29ad5" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5888/ScanLocal</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:GetAllScanner soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#GetAllScanner"/></con:call></con:operation><con:operation id="a84339a1-9836-408a-b944-4826486806d3" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#Scan" name="Scan" bindingOperationName="Scan" type="Request-Response" outputName="ScanResponse" inputName="ScanRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5756b875-eb5b-4278-8301-70591ccaff2c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5888/ScanLocal</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:Scan soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <json xsi:type="xsd:string">?</json>\r
+      </imag:Scan>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#Scan"/></con:call></con:operation><con:operation id="588dac0c-0cec-4952-943a-da30a9ff499b" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#ScanTo" name="ScanTo" bindingOperationName="ScanTo" type="Request-Response" outputName="ScanToResponse" inputName="ScanToRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="36fd2797-af9e-4bb8-831d-d42a99536f5b" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5888/ScanLocal</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:ScanTo soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <json xsi:type="xsd:string">?</json>\r
+      </imag:ScanTo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#ScanTo"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="956bf1b3-1fbc-47d2-b7c6-935ae67ef5a5" wsaVersion="NONE" name="IScanLocalBinding" type="wsdl" bindingName="{http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull}IScanLocalBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:5888/ScanLocal?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:5888/ScanLocal?wsdl"><con:part><con:url>http://localhost:5888/ScanLocal?wsdl</con:url><con:content><![CDATA[<definitions name="ScanLocal" targetNamespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:suds="http://www.w3.org/2000/wsdl/suds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns2="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI/ImageAPI%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns:ns3="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns:ns0="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer/ImageServer%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns:ns1="http://schemas.microsoft.com/clr/ns/System" xmlns:ns4="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI%2C%20Version%3D1.0.0.0%2C%20Culture%3Dneutral%2C%20PublicKeyToken%3Dnull" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <message name="ScanLocal.GetAllScannerInput"></message>
+  <message name="ScanLocal.GetAllScannerOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="ScanLocal.ScanInput">
+    <part name="json" type="xsd:string"/>
+  </message>
+  <message name="ScanLocal.ScanOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="ScanLocal.ScanToInput">
+    <part name="json" type="xsd:string"/>
+  </message>
+  <message name="ScanLocal.ScanToOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <portType name="ScanLocalPortType">
+    <operation name="GetAllScanner">
+      <input name="GetAllScannerRequest" message="tns:ScanLocal.GetAllScannerInput"/>
+      <output name="GetAllScannerResponse" message="tns:ScanLocal.GetAllScannerOutput"/>
+    </operation>
+    <operation name="Scan" parameterOrder="json">
+      <input name="ScanRequest" message="tns:ScanLocal.ScanInput"/>
+      <output name="ScanResponse" message="tns:ScanLocal.ScanOutput"/>
+    </operation>
+    <operation name="ScanTo" parameterOrder="json">
+      <input name="ScanToRequest" message="tns:ScanLocal.ScanToInput"/>
+      <output name="ScanToResponse" message="tns:ScanLocal.ScanToOutput"/>
+    </operation>
+  </portType>
+  <binding name="ScanLocalBinding" type="tns:ScanLocalPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <suds:class type="ns0:ScanLocal" rootType="MarshalByRefObject">
+      <suds:implements type="ns2:IScanLocal"/>
+    </suds:class>
+    <operation name="GetAllScanner">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#GetAllScanner"/>
+      <suds:method attributes="public virtual"/>
+      <input name="GetAllScannerRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </input>
+      <output name="GetAllScannerResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </output>
+    </operation>
+    <operation name="Scan">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#Scan"/>
+      <suds:method attributes="public virtual"/>
+      <input name="ScanRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </input>
+      <output name="ScanResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </output>
+    </operation>
+    <operation name="ScanTo">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer#ScanTo"/>
+      <suds:method attributes="public virtual"/>
+      <input name="ScanToRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </input>
+      <output name="ScanToResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageServer.ScanLocal/ImageServer"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="IScanLocal.GetAllScannerInput"></message>
+  <message name="IScanLocal.GetAllScannerOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="IScanLocal.ScanInput">
+    <part name="json" type="xsd:string"/>
+  </message>
+  <message name="IScanLocal.ScanOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="IScanLocal.ScanToInput">
+    <part name="json" type="xsd:string"/>
+  </message>
+  <message name="IScanLocal.ScanToOutput">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <portType name="IScanLocalPortType">
+    <operation name="GetAllScanner">
+      <input name="GetAllScannerRequest" message="tns:IScanLocal.GetAllScannerInput"/>
+      <output name="GetAllScannerResponse" message="tns:IScanLocal.GetAllScannerOutput"/>
+    </operation>
+    <operation name="Scan" parameterOrder="json">
+      <input name="ScanRequest" message="tns:IScanLocal.ScanInput"/>
+      <output name="ScanResponse" message="tns:IScanLocal.ScanOutput"/>
+    </operation>
+    <operation name="ScanTo" parameterOrder="json">
+      <input name="ScanToRequest" message="tns:IScanLocal.ScanToInput"/>
+      <output name="ScanToResponse" message="tns:IScanLocal.ScanToOutput"/>
+    </operation>
+  </portType>
+  <binding name="IScanLocalBinding" type="tns:IScanLocalPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <suds:interface type="ns2:IScanLocal"></suds:interface>
+    <operation name="GetAllScanner">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#GetAllScanner"/>
+      <input name="GetAllScannerRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </input>
+      <output name="GetAllScannerResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </output>
+    </operation>
+    <operation name="Scan">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#Scan"/>
+      <input name="ScanRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </input>
+      <output name="ScanResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </output>
+    </operation>
+    <operation name="ScanTo">
+      <soap:operation soapAction="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#ScanTo"/>
+      <input name="ScanToRequest">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </input>
+      <output name="ScanToResponse">
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ScanLocalService">
+    <port name="ScanLocalPort" binding="tns:ScanLocalBinding">
+      <soap:address location="http://localhost:5888/ScanLocal"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints/><con:operation id="76e4917e-d811-4d46-ab4a-ee270c2dff1f" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#GetAllScanner" name="GetAllScanner" bindingOperationName="GetAllScanner" type="Request-Response" outputName="GetAllScannerResponse" inputName="GetAllScannerRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fd9cc36f-83c0-4100-8125-12542207dfe6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:GetAllScanner soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#GetAllScanner"/></con:call></con:operation><con:operation id="395c34f5-78ca-466c-98c0-da9123800e41" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#Scan" name="Scan" bindingOperationName="Scan" type="Request-Response" outputName="ScanResponse" inputName="ScanRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0700ae0f-c6a0-4d94-b95b-8cf5124e5262" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:Scan soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <json xsi:type="xsd:string">?</json>\r
+      </imag:Scan>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#Scan"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7b359178-5689-4c58-b6b2-8c66dc84f2e0" isOneWay="false" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#ScanTo" name="ScanTo" bindingOperationName="ScanTo" type="Request-Response" outputName="ScanToResponse" inputName="ScanToRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="af6646fb-ca08-499b-bb9d-76aa6cc41e5a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:imag="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <imag:ScanTo soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">\r
+         <json xsi:type="xsd:string">?</json>\r
+      </imag:ScanTo>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://schemas.microsoft.com/clr/nsassem/InfoDoc.ImageAPI.IScanLocal/ImageAPI#ScanTo"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

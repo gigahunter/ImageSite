@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "cross-env UMI_ENV=local umi dev",
+    "build": "cross-env UMI_ENV=prod  umi build",
+    "buildNo": "cross-env UMI_ENV=nodown umi build",
+    "startNo": "cross-env UMI_ENV=nodown umi dev",
+    "lint": "eslint --ext .js src test",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "dva": "^2.4.1",
+    "fabric": "^4.2.0",
+    "fine-uploader": "^5.16.2",
+    "fine-uploader-wrappers": "^1.0.1",
+    "immutability-helper": "^2.9.1",
+    "jimp": "^0.16.1",
+    "prop-types": "^15.7.2",
+    "query-string": "^4.3.4",
+    "react": "^16.14.0",
+    "react-contextmenu": "^2.14.0",
+    "react-dnd": "^5.0.0",
+    "react-dnd-html5-backend": "^5.0.1",
+    "react-dom": "^16.14.0",
+    "react-dropzone": "^5.0.1",
+    "react-easy-edit": "^1.13.0",
+    "react-fine-uploader": "^1.1.1",
+    "react-splitter-layout": "^4.0.0",
+    "rsuite": "^4.8.6",
+    "styled-components": "^3.4.10",
+    "tui-code-snippet": "^1.5.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^5.2.1",
+    "eslint": "^4.14.0",
+    "eslint-config-umi": "^0.1.5",
+    "husky": "^0.12.0",
+    "react-intl": "^2.9.0",
+    "umi": "^2.13.16",
+    "umi-plugin-react": "^1.15.8"
+  }
+}
