@@ -25,6 +25,16 @@ const { Sider, Content } = Layout;
 import ThumbnailGrid from './ThumbnailGrid';
 
 class myContent extends Component {
+  state = {
+    showThumbnails: false
+  };
+
+  // 新增雙擊處理方法
+  handleThumbnailDoubleClick = (pageNumber) => {
+    this.setState({ showThumbnails: false });
+    this.setPage(pageNumber);
+  };
+
   onPage = page => {
     debugger;
     const { selectedItems } = this.props;
@@ -244,6 +254,7 @@ class myContent extends Component {
             <div>
               {/* 在按鈕組中添加切換按鈕 */}
               <ButtonGroup>
+                {/* 新增的切換按鈕 */}
                 <Button
                   style={buttonStyle}
                   icon={this.state.showThumbnails ? 'close' : 'appstore'}
@@ -318,7 +329,10 @@ class myContent extends Component {
             </div>
             <div>
               {this.state.showThumbnails ? (
-                <ThumbnailGrid items={selectedItems} />
+                <ThumbnailGrid 
+                  items={selectedItems}
+                  onDoubleClick={this.handleThumbnailDoubleClick} // 傳遞雙擊回調
+                />
               ) : (
                 <ImageEditor
                   cfg={{
