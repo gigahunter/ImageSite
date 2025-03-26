@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Layout, Popover, Button, Divider, InputNumber } from 'antd';
 import { connect } from 'dva';
 import { ContextMenu, MenuItem, ContextMenuTrigger } from 'react-contextmenu';
@@ -9,6 +9,7 @@ import GoPage from './GoPage';
 import DrawSettings from './DrawSettings';
 import ImageEditor from '../../components/ImageEditor';
 import consts from '../../components/ImageEditor/consts';
+import ThumbnailGallery from './ThumbnailGallery';
 
 import styles from './Content.less';
 
@@ -123,6 +124,13 @@ class myContent extends Component {
       attachKey,
       imageRatio,
     } = this.props;
+
+    // 新增狀態用於控制縮圖頁的顯示
+    const [showThumbnails, setShowThumbnails] = useState(false);
+
+    const toggleThumbnails = () => {
+        setShowThumbnails(!showThumbnails);
+    };
 
     if (clickNext) {
       dispatch({ type: 'UI/reset', payload: { key: 'clickNext' } });
@@ -306,13 +314,17 @@ class myContent extends Component {
             </div>
           </div>
           <div className={styles.canvasHeight}>
-            <ImageEditor
-              cfg={{
-                cssMaxWidth: 9918,
-                cssMaxHeight: 7014,
-              }}
-              ref={elm => ref(elm)}
-            />
+            {showThumbnails ? (
+                <ThumbnailGallery thumbnails={selectedItems} />
+            ) : (
+                <ImageEditor
+                    cfg={{
+                        cssMaxWidth: 9918,
+                        cssMaxHeight: 7014,
+                    }}
+                    ref={elm => ref(elm)}
+                />
+            )}
           </div>
         </Content>
       </Layout>
