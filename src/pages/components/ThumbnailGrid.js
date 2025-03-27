@@ -3,6 +3,7 @@ import { Row, Col } from 'antd';
 import styles from './ThumbnailGrid.less';
 
 const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
+  var total = images.length;
   return (
     <div className={styles.thumbnailGrid}>
       <Row gutter={[16, 16]}>
@@ -15,7 +16,7 @@ const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
                 className={styles.thumbnail}
                 onDoubleClick={() => onImageDoubleClick(image, index)}
               />
-              <div className={styles.filename}>{image.FileName}</div>
+              <div className={styles.filename}>({index + 1}/{total})</div>
             </div>
           </Col>
         ))}

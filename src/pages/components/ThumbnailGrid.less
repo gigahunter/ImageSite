@@ -1,5 +1,25 @@
 .thumbnailGrid {
   padding: 16px;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+    border-radius: 4px;
+    
+    &:hover {
+      background: #a6a6a6;
+    }
+  }
 }
 
 .imageContainer {
