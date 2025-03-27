@@ -265,7 +265,7 @@ class myContent extends Component {
           </ContextMenu>
         </Sider>
         <Content>
-          <div style={{ padding: '1pt' }}>
+          <div style={{ padding: '1pt'}}>
             <div>
               <Button
                 style={buttonStyle}
@@ -342,7 +342,7 @@ class myContent extends Component {
               {isDraw ? <DrawSettings /> : null}
             </div>
           </div>
-          <div className={styles.canvasHeight} style={{ height: 'calc(100vh - 120px)', overflow: 'hidden' }}>
+          <div className={styles.canvasHeight}>
             {showThumbnailGrid ? (
               <ThumbnailGrid
                 images={selectedItems}
