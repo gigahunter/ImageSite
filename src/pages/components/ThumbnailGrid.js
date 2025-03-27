@@ -16,7 +16,6 @@ const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
                 className={styles.thumbnail}
                 onDoubleClick={() => onImageDoubleClick(image, index)}
               />
-              <div className={styles.filename}>({index + 1}/{total})</div>
             </div>
           </Col>
         ))}
