@@ -8,6 +8,7 @@ import ImageList from './image';
 import GoPage from './GoPage';
 import DrawSettings from './DrawSettings';
 import ImageEditor from '../../components/ImageEditor';
+import ThumbnailGrid from './ThumbnailGrid';
 import consts from '../../components/ImageEditor/consts';
 
 import styles from './Content.less';
@@ -22,6 +23,10 @@ const ButtonGroup = Button.Group;
 const { Sider, Content } = Layout;
 
 class myContent extends Component {
+  state = {
+    showThumbnailGrid: false,
+  };
+
   onPage = page => {
     debugger;
     const { selectedItems } = this.props;
@@ -110,6 +115,12 @@ class myContent extends Component {
     });
   };
 
+  toggleView = () => {
+    this.setState(prevState => ({
+      showThumbnailGrid: !prevState.showThumbnailGrid
+    }));
+  };
+
   render() {
     const {
       dispatch,
@@ -187,6 +198,8 @@ class myContent extends Component {
     const pdfName = title + (attachKey ? '_' + attachKey : '');
     let hidden = {};
     if (!selectedItems || selectedItems.length === 0) hidden = { display: 'none' };
+    const { showThumbnailGrid } = this.state;
+
     return (
       <Layout className={styles.content}>
         <Sider className={styles.sider} style={hidden}>
@@ -237,83 +250,94 @@ class myContent extends Component {
           </ContextMenu>
         </Sider>
         <Content>
-          <div style={{ padding: '1pt' }}>
-            <div>
-              <Button
-                style={buttonStyle}
-                icon="file-pdf"
-                title="轉pdf"
-                onClick={e =>
-                  selected &&
-                  dispatch({
-                    type: 'imgData/downloadPdf',
-                    payload: { docPath: selected.DocPath, attachKey, pdfName },
-                  })
-                }
-              />
-              <Divider type="vertical" />
-              <span>
-                <Button style={buttonStyle} icon="backward" onClick={e => this.setPage(1)} />
-                <Button
-                  style={buttonStyle}
-                  icon="caret-left"
-                  onClick={e => this.setPage(order - 1)}
-                />
-                <span style={{ marginLeft: '4pt', marginRight: '4pt' }}>
-                  {order}/{count}
-                </span>
-                <Button
-                  style={buttonStyle}
-                  icon="caret-right"
-                  onClick={e => this.setPage(order + 1)}
-                />
-                <Button style={buttonStyle} icon="forward" onClick={e => this.setPage(count)} />
-              </span>
-              <Divider type="vertical" />
-              <ButtonGroup>
-                <Button
-                  style={buttonStyle}
-                  icon="column-width"
-                  onClick={e => this.setRatio('w')}
-                  title="符合頁寬"
-                />
-                <Button
-                  style={buttonStyle}
-                  icon="column-height"
-                  onClick={e => this.setRatio('h')}
-                  title="符合頁高"
-                />
-                <InputNumber
-                  value={imageRatio}
-                  step={5}
-                  min={10}
-                  max={200}
-                  onChange={this.setRatio}
-                  formatter={v => `${v}%`}
-                  parser={v => v.replace('%', '')}
-                />
-              </ButtonGroup>
-            </div>
-            <div>
-              {isCrop ? (
-                <>
-                  <span>裁剪：</span>
-                  <Button onClick={() => dispatch({ type: 'imgEditor/cropApply' })}>確定</Button>
-                  <Button onClick={() => dispatch({ type: 'imgEditor/cropCancel' })}>取消</Button>
-                </>
-              ) : null}
-              {isDraw ? <DrawSettings /> : null}
-            </div>
+          <div style={{ marginBottom: '16px' }}>
+            <Button onClick={this.toggleView}>
+              {showThumbnailGrid ? 'Close Grid View' : 'Open Grid View'}
+            </Button>
           </div>
-          <div className={styles.canvasHeight}>
-            <ImageEditor
-              cfg={{
-                cssMaxWidth: 9918,
-                cssMaxHeight: 7014,
-              }}
-              ref={elm => ref(elm)}
-            />
-          </div>
+          {showThumbnailGrid ? (
+            <ThumbnailGrid images={selectedItems} />
+          ) : (
+            <div>
+              <div style={{ padding: '1pt' }}>
+                <div>
+                  <Button
+                    style={buttonStyle}
+                    icon="file-pdf"
+                    title="轉pdf"
+                    onClick={e =>
+                      selected &&
+                      dispatch({
+                        type: 'imgData/downloadPdf',
+                        payload: { docPath: selected.DocPath, attachKey, pdfName },
+                      })
+                    }
+                  />
+                  <Divider type="vertical" />
+                  <span>
+                    <Button style={buttonStyle} icon="backward" onClick={e => this.setPage(1)} />
+                    <Button
+                      style={buttonStyle}
+                      icon="caret-left"
+                      onClick={e => this.setPage(order - 1)}
+                    />
+                    <span style={{ marginLeft: '4pt', marginRight: '4pt' }}>
+                      {order}/{count}
+                    </span>
+                    <Button
+                      style={buttonStyle}
+                      icon="caret-right"
+                      onClick={e => this.setPage(order + 1)}
+                    />
+                    <Button style={buttonStyle} icon="forward" onClick={e => this.setPage(count)} />
+                  </span>
+                  <Divider type="vertical" />
+                  <ButtonGroup>
+                    <Button
+                      style={buttonStyle}
+                      icon="column-width"
+                      onClick={e => this.setRatio('w')}
+                      title="符合頁寬"
+                    />
+                    <Button
+                      style={buttonStyle}
+                      icon="column-height"
+                      onClick={e => this.setRatio('h')}
+                      title="符合頁高"
+                    />
+                    <InputNumber
+                      value={imageRatio}
+                      step={5}
+                      min={10}
+                      max={200}
+                      onChange={this.setRatio}
+                      formatter={v => `${v}%`}
+                      parser={v => v.replace('%', '')}
+                    />
+                  </ButtonGroup>
+                </div>
+                <div>
+                  {isCrop ? (
+                    <>
+                      <span>裁剪：</span>
+                      <Button onClick={() => dispatch({ type: 'imgEditor/cropApply' })}>確定</Button>
+                      <Button onClick={() => dispatch({ type: 'imgEditor/cropCancel' })}>取消</Button>
+                    </>
+                  ) : null}
+                  {isDraw ? <DrawSettings /> : null}
+                </div>
+              </div>
+              <div className={styles.canvasHeight}>
+                <ImageEditor
+                  cfg={{
+                    cssMaxWidth: 9918,
+                    cssMaxHeight: 7014,
+                  }}
+                  ref={elm => ref(elm)}
+                />
+              </div>
+            </div>
+          )}
         </Content>
       </Layout>
     );
