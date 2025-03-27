@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card } from 'antd';
+import { Row, Col } from 'antd';
 import styles from './ThumbnailGrid.less';
 
 const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
@@ -8,19 +8,15 @@ const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
       <Row gutter={[16, 16]}>
         {images.map((image, index) => (
           <Col xs={6} key={image.FileId}>
-            <Card
-              hoverable
-              cover={
-                <img
-                  alt={image.FileName}
-                  src={image.ThumbnailUrl || image.FileUrl}
-                  className={styles.thumbnail}
-                  onDoubleClick={() => onImageDoubleClick(image, index)}
-                />
-              }
-            >
-              <Card.Meta title={image.FileName} />
-            </Card>
+            <div className={styles.imageContainer}>
+              <img
+                alt={image.FileName}
+                src={image.ThumbnailUrl || image.FileUrl}
+                className={styles.thumbnail}
+                onDoubleClick={() => onImageDoubleClick(image, index)}
+              />
+              <div className={styles.filename}>{image.FileName}</div>
+            </div>
           </Col>
         ))}
       </Row>

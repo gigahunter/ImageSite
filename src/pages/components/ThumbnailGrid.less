@@ -1,15 +1,30 @@
 .thumbnailGrid {
   padding: 16px;
+}
+
+.imageContainer {
+  cursor: pointer;
+  transition: all 0.3s;
   
-  :global {
-    .ant-card {
-      margin-bottom: 16px;
-    }
+  &:hover {
+    transform: scale(1.02);
   }
 }
 
 .thumbnail {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: 200px;
+  object-fit: contain;
+  background-color: #f0f0f0;
+  display: block;
+}
+
+.filename {
+  margin-top: 8px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.85);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 4px;
 }
