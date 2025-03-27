@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Card } from 'antd';
 import styles from './ThumbnailGrid.less';
 
-const ThumbnailGrid = ({ images }) => {
+const ThumbnailGrid = ({ images, onImageDoubleClick }) => {
   return (
     <div className={styles.thumbnailGrid}>
       <Row gutter={[16, 16]}>
@@ -15,6 +15,7 @@ const ThumbnailGrid = ({ images }) => {
                   alt={image.FileName}
                   src={image.ThumbnailUrl || image.FileUrl}
                   className={styles.thumbnail}
+                  onDoubleClick={() => onImageDoubleClick(image, index)}
                 />
               }
             >

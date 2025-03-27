@@ -121,6 +121,21 @@ class myContent extends Component {
     }));
   };
 
+  handleImageDoubleClick = (image, index) => {
+    const { dispatch } = this.props;
+    
+    // Select the image
+    dispatch({
+      type: 'imgData/selectByIndex',
+      payload: { index },
+    });
+
+    // Switch to ImageEditor view
+    this.setState({
+      showThumbnailGrid: false
+    });
+  };
+
   render() {
     const {
       dispatch,
@@ -256,7 +271,10 @@ class myContent extends Component {
             </Button>
           </div>
           {showThumbnailGrid ? (
-            <ThumbnailGrid images={selectedItems} />
+            <ThumbnailGrid 
+              images={selectedItems} 
+              onImageDoubleClick={this.handleImageDoubleClick}
+            />
           ) : (
             <div>
               <div style={{ padding: '1pt' }}>
