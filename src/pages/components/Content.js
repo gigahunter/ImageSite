@@ -25,6 +25,7 @@ const { Sider, Content } = Layout;
 class myContent extends Component {
   state = {
     showThumbnailGrid: false,
+    magnifyingGlassActive: false,
   };
 
   onPage = page => {
@@ -121,14 +122,27 @@ class myContent extends Component {
     }));
   };
 
-  handleImageDoubleClick = (image, index) => {
+  toggleMagnifyingGlass = () => {
+    this.setState(prevState => ({
+      magnifyingGlassActive: !prevState.magnifyingGlassActive,
+    }));
+  };
+
+  handleImageDoubleClick = image => {
     const { dispatch } = this.props;
+
+    var fid = image.FileId;
 
     // Select the image
     dispatch({
-      type: 'imgData/selectByIndex',
-      payload: { index },
+      type: 'imgData/selectByItemId',
+      payload: { key: fid },
     });
+
+    const imageList = this.getImageList();
+    if (imageList) {
+      imageList.scrollTo(fid);
+    }
 
     // Switch to ImageEditor view
     this.setState({
@@ -213,7 +227,7 @@ class myContent extends Component {
     const pdfName = title + (attachKey ? '_' + attachKey : '');
     let hidden = {};
     if (!selectedItems || selectedItems.length === 0) hidden = { display: 'none' };
-    const { showThumbnailGrid } = this.state;
+    const { showThumbnailGrid, magnifyingGlassActive } = this.state;
 
     return (
       <Layout className={styles.content}>
@@ -265,7 +279,7 @@ class myContent extends Component {
           </ContextMenu>
         </Sider>
         <Content>
-          <div style={{ padding: '1pt'}}>
+          <div style={{ padding: '1pt' }}>
             <div>
               <Button
                 style={buttonStyle}
@@ -328,8 +342,19 @@ class myContent extends Component {
                 onClick={this.toggleView}
                 title={showThumbnailGrid ? '關閉縮圖' : '開啟縮圖'}
               >
-                {this.state.showGallery ? '關閉縮圖' : '開啟縮圖'}
+                {showThumbnailGrid ? '關閉縮圖' : '開啟縮圖'}
               </Button>
+              {showThumbnailGrid && (
+                <Button
+                  style={buttonStyle}
+                  icon="zoom-in"
+                  onClick={this.toggleMagnifyingGlass}
+                  title={magnifyingGlassActive ? '關閉放大鏡' : '開啟放大鏡'}
+                  type={magnifyingGlassActive ? 'primary' : 'default'}
+                >
+                  {magnifyingGlassActive ? '關閉放大鏡' : '開啟放大鏡'}
+                </Button>
+              )}
             </div>
             <div>
               {isCrop ? (
@@ -347,6 +372,7 @@ class myContent extends Component {
               <ThumbnailGrid
                 images={selectedItems}
                 onImageDoubleClick={this.handleImageDoubleClick}
+                magnifyingGlassActive={magnifyingGlassActive}
               />
             ) : (
               <ImageEditor
