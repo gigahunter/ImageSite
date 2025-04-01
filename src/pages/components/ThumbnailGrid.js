@@ -7,13 +7,19 @@ const ThumbnailGrid = ({ images, onImageDoubleClick, magnifyingGlassActive }) =>
   const [activeImageUrl, setActiveImageUrl] = useState(null);
   const [showZoom, setShowZoom] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenDimensions, setScreenDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
   const imageRefs = useRef({});
 
-  // Update screen width on resize
+  // Update screen dimensions on resize
   useEffect(() => {
     const handleResize = () => {
-      setScreenWidth(window.innerWidth);
+      setScreenDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
     };
 
     window.addEventListener('resize', handleResize);
@@ -29,7 +35,12 @@ const ThumbnailGrid = ({ images, onImageDoubleClick, magnifyingGlassActive }) =>
     const y = (e.clientY - rect.top) / rect.height;
 
     setMousePosition({ x, y });
-    setZoomPosition({ x: e.clientX, y: e.clientY });
+    setZoomPosition({ 
+      x: e.clientX, 
+      y: e.clientY,
+      pageX: e.pageX,
+      pageY: e.pageY
+    });
     setActiveImageUrl(image.FileUrl);
     setShowZoom(true);
 
@@ -50,17 +61,38 @@ const ThumbnailGrid = ({ images, onImageDoubleClick, magnifyingGlassActive }) =>
   // Calculate zoom factor - how much to magnify
   const zoomFactor = 2.5;
 
-  // Determine if we should show the magnifying glass on the left side
-  const determineZoomPosition = (x, y) => {
-    // Magnifying glass width plus some margin
-    const zoomWidth = 300;
-    // If cursor is in the right 40% of the screen, show on left
-    const showOnLeft = x > (screenWidth * 0.6);
+  // Constants for magnifying glass
+  const ZOOM_WIDTH = 280;
+  const ZOOM_HEIGHT = 280;
+  const MARGIN = 20;
 
-    return {
-      left: showOnLeft ? `${x - zoomWidth - 20}px` : `${x + 20}px`,
-      top: `${y - 100}px`
-    };
+  // Determine optimal position for the magnifying glass
+  const determineZoomPosition = (pos) => {
+    // Get screen dimensions
+    const { width: screenWidth, height: screenHeight } = screenDimensions;
+
+    // Check horizontal position (left or right)
+    const showOnLeft = pos.x > (screenWidth * 0.6);
+
+    // Check vertical position (top or bottom)
+    const showOnTop = pos.y > (screenHeight * 0.7);
+
+    // Calculate position
+    let left, top;
+
+    if (showOnLeft) {
+      left = `${pos.x - ZOOM_WIDTH - MARGIN}px`;
+    } else {
+      left = `${pos.x + MARGIN}px`;
+    }
+
+    if (showOnTop) {
+      top = `${pos.y - ZOOM_HEIGHT - MARGIN}px`;
+    } else {
+      top = `${pos.y + MARGIN}px`;
+    }
+
+    return { left, top };
   };
 
   return (
@@ -94,7 +126,7 @@ const ThumbnailGrid = ({ images, onImageDoubleClick, magnifyingGlassActive }) =>
       {magnifyingGlassActive && showZoom && activeImageUrl && (
         <div 
           className={styles.zoomView}
-          style={determineZoomPosition(zoomPosition.x, zoomPosition.y)}
+          style={determineZoomPosition(zoomPosition)}
         >
           <div 
             className={styles.zoomContent}
